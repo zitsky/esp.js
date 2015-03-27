@@ -1,59 +1,63 @@
 @font-face {
   font-family: helv4light;
-  src: url("fonts/Helv-4-Light.ttf") format("truetype");
+  src: url("/fonts/Helv-4-Light.ttf") format("truetype");
 }
 @font-face {
   font-family: helv5normal;
-  src: url("fonts/helv5normal.ttf") format("truetype");
+  src: url("/fonts/helv5normal.ttf") format("truetype");
 }
 @font-face {
   font-family: helv7bold;
-  src: url("fonts/Helv-7-Bold.ttf") format("truetype");
+  src: url("/fonts/Helv-7-Bold.ttf") format("truetype");
 }
 @font-face {
   font-family: helv3thin;
-  src: url("fonts/helv3thin.ttf") format("truetype");
+  src: url("/fonts/helv3thin.ttf") format("truetype");
 }
 @font-face {
   font-family: GothamRnd-Medium;
-  src: url("fonts/GothamRnd-Medium.otf") format("opentype");
+  src: url("/fonts/GothamRnd-Medium.otf") format("opentype");
 }
 @font-face {
   font-family: GothamRnd-Bold;
-  src: url("fonts/GothamRnd-Bold.otf") format("opentype");
+  src: url("/fonts/GothamRnd-Bold.otf") format("opentype");
 }
 @font-face {
   font-family: GothamRnd-BoldItal;
-  src: url("fonts/GothamRnd-BoldItal.otf") format("opentype");
+  src: url("/fonts/GothamRnd-BoldItal.otf") format("opentype");
 }
 @font-face {
   font-family: GothamRnd-Book;
-  src: url("fonts/GothamRnd-Book.otf") format("opentype");
+  src: url("/fonts/GothamRnd-Book.otf") format("opentype");
 }
 @font-face {
   font-family: GothamRnd-BookItal;
-  src: url("fonts/GothamRnd-BookItal.otf") format("opentype");
+  src: url("/fonts/GothamRnd-BookItal.otf") format("opentype");
 }
 @font-face {
   font-family: GothamRnd-Light;
-  src: url("fonts/GothamRnd-Light.otf") format("opentype");
+  src: url("/fonts/GothamRnd-Light.otf") format("opentype");
 }
 @font-face {
   font-family: GothamRnd-LightItal;
-  src: url("fonts/GothamRnd-LightItal.otf") format("opentype");
+  src: url("/fonts/GothamRnd-LightItal.otf") format("opentype");
 }
 @font-face {
   font-family: GothamRnd-MedItal;
-  src: url("fonts/GothamRnd-MedItal.otf") format("opentype");
+  src: url("/fonts/GothamRnd-MedItal.otf") format("opentype");
 }
 html {
   position: relative;
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 html body {
   position: relative;
   min-height: 100%;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 html body .window-header {
   position: absolute;
@@ -89,9 +93,19 @@ html body .preloader {
   background: green;
   z-index: 10000;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
 }
 html body .preloader h1 {
-  font: 30px arial;
+  font: 30px helv5normal;
+  color: #FFF;
+}
+html body .preloader span {
+  position: relative;
+  text-align: center;
+  font: 14px helv4light;
+  color: #FFF;
 }
 html body .preloader h1:before {
   content: ' ';

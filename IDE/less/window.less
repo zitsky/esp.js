@@ -2,12 +2,16 @@ html {
 
 	position:relative;
 	height:100%;
+	margin:0;
+	padding:0;
 
 	body {
 
 		position:relative;
 		min-height:100%;
 		overflow: hidden;
+		margin:0;
+		padding:0;
 
 		.window-header {
 
@@ -55,9 +59,22 @@ html {
 			background:green;
 			z-index:10000;
 			display: flex;
+			justify-content: center;
+  			align-items: center;
+  			flex-flow:column;
+
 			h1 {
-				font:30px arial;
+				font:30px helv5normal;
+				color:#FFF;
+
 			}
+
+			span {
+					position: relative;
+					text-align: center;
+					font:14px helv4light;
+					color:#FFF;
+				}
 
 			h1:before {
 				content:' ';

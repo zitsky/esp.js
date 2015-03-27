@@ -3,6 +3,8 @@ module.exports = function(grunt) {
 
   var copyFiles=parseBuildPlatformsForCopy(grunt.option('platforms'));
 
+  console.log(copyFiles);
+
   grunt.initConfig({
     less: {
       dist: {
@@ -87,17 +89,17 @@ var parseBuildPlatformsForCopy=function(argumentPlatform)
 
   if(/win/.test(inputPlatforms) || buildAll)
   {
-    var files=["ESP.JS IDE.exe","icudtl.dat","nw.pak"];
+    var files=["ESP.JSIDE.exe","icudtl.dat","nw.pak"];
     for(var i=0;i<files.length;i++)
     {
         returnCopyObject.push({
-          src: 'build/ESP.JS IDE/win64/'+files[i],
+          src: 'build/ESP.JSIDE/win64/'+files[i],
           dest: '../release/bin/win64/'+files[i],
           flatten: true
         });
 
         returnCopyObject.push({
-          src: 'build/ESP.JS IDE/win32/'+files[i],
+          src: 'build/ESP.JSIDE/win32/'+files[i],
           dest: '../release/bin/win32/'+files[i],
           flatten: true
         });
