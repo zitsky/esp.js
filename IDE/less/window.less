@@ -1,0 +1,67 @@
+html {
+
+	position:relative;
+	height:100%;
+
+	body {
+
+		position:relative;
+		min-height:100%;
+
+		.window-header {
+
+			position:absolute;
+			left:0;
+			top:0;
+			right:0;
+			height:122px;
+			background:green;
+
+			.win-button-group {
+
+				position: absolute;
+				top:0;
+				height:32px;
+				display: flex;
+
+				.button {
+
+				}
+			}
+
+			.win-button-group.on-right {
+
+				right:0;
+
+			}
+
+			.win-button-group.on-left {
+
+				left:0;
+
+			}
+		}
+
+		.preloader {
+
+			position: absolute;
+			left:0;
+			right:0;
+			bottom:0;
+			top:0;
+			background:green;
+			z-index:10000;
+			display: flex;
+			h1 {
+				font:30px arial;
+			}
+
+			h1:before {
+				content:' ';
+				position: absolute;
+				left:0;
+				top:0;
+			}
+		}
+	}
+}

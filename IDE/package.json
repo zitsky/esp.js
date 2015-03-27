@@ -1,0 +1,26 @@
+{
+	"name":"ESP.JS IDE",
+	"main":"app://host/index.html",
+	"version":"0.1.0",
+	"window":{
+		"title":"ESP.JS IDE",
+		"icon":"resources/icos/main.png",
+		"toolbar":false,
+		"frame":false,
+		"width":962,
+		"height":600,
+		"min_width":962,
+		"min_height":600,
+		"resizable":true
+	},
+	"dependencies":{
+
+	},
+	"devDependencies": {
+	    "grunt": "~0.4.5",
+	    "grunt-node-webkit-builder": "~1.0.2",
+	    "grunt-contrib-less": "~1.0.0",
+	    "grunt-contrib-watch": "~0.6.1",
+	    "grunt-contrib-copy": "~0.8.0"
+  }
+}

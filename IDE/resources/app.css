@@ -1,0 +1,28 @@
+html {
+  position: relative;
+  height: 100%;
+}
+html body {
+  position: relative;
+  min-height: 100%;
+}
+html body .window-header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 122px;
+  background: green;
+}
+html body .window-header .win-button-group {
+  position: absolute;
+  top: 0;
+  height: 32px;
+  display: flex;
+}
+html body .window-header .win-button-group.on-right {
+  right: 0;
+}
+html body .window-header .win-button-group.on-left {
+  left: 0;
+}
