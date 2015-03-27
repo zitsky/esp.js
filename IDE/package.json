@@ -1,5 +1,5 @@
 {
-	"name":"ESP.JS IDE",
+	"name":"ESP.JSIDE",
 	"main":"app://host/index.html",
 	"version":"0.1.0",
 	"window":{
