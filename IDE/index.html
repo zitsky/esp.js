@@ -4,17 +4,27 @@
 	<link rel="stylesheet" href="resources/app.css">
 </head>
 <body>
-	<div class="preloader">
+	<div id="preloader" class="preloader">
 		<h1>ESP.JS IDE</h1>
-		<span>initialize...</span>
+		<span></span>
 	</div>
 	<div class="window-header">
-		<h1 class="title"></h1>
-		<div class="button-group">
-			<button class="button button-min"></button>
-			<button class="button button-max"></button>
-			<button class="button button-close"></button>
+		<h1 class="title"><span>welcome</span> - ESP.JS IDE</h1>
+		<div class="win-button-group on-right">
+			<button class="button button-min">_</button>
+			<button class="button button-max"><i></i></button>
+			<button class="button button-close">X</button>
 		</div>
+		<ul class="menu allowopen">
+			<li><span>file</span><ul><li>New</li><li>Open</li><hr/><li>Quit</li></ul></li>
+			<li><span>edit</span></li>
+			<li><span>project</span></li>
+			<li><span>build</span></li>
+			<li><span>window</span></li>
+			<li><span>help</span></li>
+		</ul>
 	</div>
+
+	<script data-main="js/bootstrap" src="/js/vendor/require.js"></script>
 </body>
 </html>

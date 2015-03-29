@@ -1,0 +1,4 @@
+SET JSIDE=%cd%
+SET JSIDEAPP=%cd%/../../../IDE/
+ESP.JSIDE.exe "%JSIDEAPP%"
+cd %JSIDE%

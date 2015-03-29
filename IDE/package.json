@@ -6,7 +6,7 @@
 		"title":"ESP.JS IDE",
 		"_icon":"resources/icos/main.png",
 		"_toolbar":false,
-		"_frame":false,
+		"frame":false,
 		"width":962,
 		"height":600,
 		"min_width":962,

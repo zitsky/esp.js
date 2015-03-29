@@ -12,6 +12,7 @@ html {
 		overflow: hidden;
 		margin:0;
 		padding:0;
+		background:rgba(0,0,0,0.6);
 
 		.window-header {
 
@@ -20,32 +21,135 @@ html {
 			top:0;
 			right:0;
 			height:122px;
-			background:green;
+			background:@grandBlue;
 
 			.win-button-group {
 
 				position: absolute;
-				top:0;
+				top:2px;
 				height:32px;
 				display: flex;
-				background:darkgreen;
+				
 
 				.button {
-					border:none;
-					background:red;
+					  border: none;
+					  background: rgba(255,255,255,0.1);
+					  width: 25px;
+					  margin: 0;
+					  padding: 0;
+					  margin-right: 0px;
+					  height: 25px;
+					  border-left: 2px solid rgba(255,255,255,0.1);
+					  color: #FFF;
+  					font: 15px helv4light;
+  					position:relative;
+  					outline:0;
+  					i {
+  					  border: 1px solid #FFF;
+					  left: 5px;
+					  top: 10px;
+					  right: 5px;
+					  bottom: 5px;
+					  display: block;
+					  position: absolute;
+  					}
+				}
+
+				.button:first-child {
+					border-left:0;
+				}
+
+				.button:hover {
+					background:rgba(255,255,255,0.2);
 				}
 			}
 
 			.win-button-group.on-right {
 
-				right:0;
+				right:2px;
 
 			}
 
 			.win-button-group.on-left {
 
-				left:0;
+				left:2px;
 
+			}
+
+			h1 {
+				font:@titleText;
+				color:@mainText;
+				margin: 0;
+				  padding: 0;
+				  position: absolute;
+				  left: 10px;
+				  top: 10px;
+				  text-transform: uppercase;
+			}
+
+			.menu {
+				list-style:none;
+				position:absolute;
+				left:25px;
+				bottom:0px;
+				margin: 0;
+				  padding: 0;
+				  display: flex;
+				  li {
+				      height: 30px;
+					  padding: 0px 10px;
+					  border-bottom: 2px solid white;
+					  justify-content: center;
+					  display: flex;
+					  font: 15px helv3thin;
+					  color: #fff;
+					  text-transform: uppercase;
+					  align-items: center;
+					  cursor:pointer;
+					  margin-right:1px;
+				  }
+				  li:hover, li.active {
+				  	  background:white;
+				  	  color:@grandBlue;
+				  }
+				  ul {
+				   display:none;
+				  }
+			}
+
+			.menu.allowopen {
+				ul {
+					position:absolute;
+					top:32px;
+					left:0px;
+					background:@grandBlue;
+					border-left:1px solid white;
+					min-height:30px;
+					list-style:none;
+					flex-direction:column;
+						padding:0;
+						min-width:120px;
+					li {
+						  justify-content: flex-start;
+						  margin:0;
+						  border:0;
+					}
+					hr {
+						  border: 0;
+						  height: 1px;
+						  background: rgba(255, 255, 255, 0.2);
+						  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+						  display: block;
+						  margin: 0;
+						  padding: 0px;
+					}
+				}
+			}
+
+			.menu.allowopen li:hover {
+				ul {
+					display:flex;
+				}
 			}
 		}
 
@@ -56,7 +160,7 @@ html {
 			right:0;
 			bottom:0;
 			top:0;
-			background:green;
+			background:@grandBlue;
 			z-index:10000;
 			display: flex;
 			justify-content: center;
