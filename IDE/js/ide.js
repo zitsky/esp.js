@@ -1,4 +1,4 @@
-define(['underscore','backbone','app/system/preloader'],function(_,Backbone,Preloader){
+define(['underscore','backbone','app/system/preloader','app/views/codeview'],function(_,Backbone,Preloader,CodeView){
 	var self={};	
 	return _.extend(self,{
 		start:function()

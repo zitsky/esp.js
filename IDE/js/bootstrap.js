@@ -12,6 +12,8 @@ requirejs.config({
 		'ribs':'backbone.ribs',
 		'text':'require.text',
 		'async':'async',
+		'codemirror':'codemirror',
+		'javascript':'javascript',
 		'IDE':'../ide'
 
 	},
