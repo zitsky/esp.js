@@ -6,7 +6,7 @@ define(['underscore','Backbone','app/system/preloader'],function(_,Backbone,Prel
 			Wizard: 'app/system/wizard',
 			Welcome:'app/system/welcome',
 			Windows:'app/windows/baseline',
-			
+			Board:  'app/system/board', 
 		},
 		Views:{},
 		initialize:function()
