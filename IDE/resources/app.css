@@ -59,7 +59,7 @@ html body {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: #272822;
 }
 html body .window-header {
   position: absolute;
@@ -207,4 +207,105 @@ html body .preloader h1:before {
   position: absolute;
   left: 0;
   top: 0;
+}
+.editor-main {
+  position: absolute;
+  top: 122px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+.editor-main #project_info {
+  width: 200px;
+}
+.editor-main #mainView {
+  flex-grow: 1;
+  position: relative;
+}
+.editor-style {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+.editor-style #editor_files {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  min-height: 25px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+}
+.editor-style #editor_files li {
+  height: 20px;
+  font: 16px/20px helv4light;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0px 7px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  margin: 2px 1px;
+  color: rgba(255, 255, 255, 0.9);
+  /* width: 122px; */
+  max-width: 160px;
+  min-width: 100px;
+  flex-grow: 1;
+  display: flex;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  box-shadow: inset 0px 6px 6px 0px rgba(255, 255, 255, 0.1);
+  cursor: default!important;
+  position: relative;
+}
+.editor-style #editor_files li span {
+  flex-grow: 1;
+}
+.editor-style #editor_files li i {
+  flex-grow: 0;
+  font: 10px/15px helv3thin;
+  background: rgba(0, 0, 0, 0.3);
+  height: 15px;
+  width: 15px;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+  top: 2px;
+  left: 4px;
+}
+.editor-style #editor_files li:hover,
+.editor-style #editor_files li.active {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+.editor-style #editor_files li:before {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.editor-style #editor {
+  flex-grow: 1;
+  position: relative;
+}
+.editor-style #editor .CodeMirror {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: auto;
+}
+.editor-style #editor .CodeMirror .CodeMirror-gutters {
+  background: rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
 }

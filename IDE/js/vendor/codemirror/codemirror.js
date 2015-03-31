@@ -2919,6 +2919,7 @@
       updateMaxLine: false,    // Set when the widest line needs to be determined anew
       scrollLeft: null, scrollTop: null, // Intermediate scroll position, not pushed to DOM yet
       scrollToPos: null,       // Used to scroll to a specific position
+      focus: false,
       id: ++nextOpId           // Unique ID
     };
     if (operationGroup) {
@@ -3036,6 +3037,7 @@
 
     if (cm.state.focused && op.updateInput)
       cm.display.input.reset(op.typing);
+    if (op.focus) ensureFocus(op.cm);
   }
 
   function endOperation_finish(op) {
@@ -3400,15 +3402,11 @@
     // Prevent wrapper from ever scrolling
     on(d.wrapper, "scroll", function() { d.wrapper.scrollTop = d.wrapper.scrollLeft = 0; });
 
-    function drag_(e) {
-      if (!signalDOMEvent(cm, e)) e_stop(e);
-    }
-    if (cm.options.dragDrop) {
-      on(d.scroller, "dragstart", function(e){onDragStart(cm, e);});
-      on(d.scroller, "dragenter", drag_);
-      on(d.scroller, "dragover", drag_);
-      on(d.scroller, "drop", operation(cm, onDrop));
-    }
+    d.dragFunctions = {
+      simple: function(e) {if (!signalDOMEvent(cm, e)) e_stop(e);},
+      start: function(e){onDragStart(cm, e);},
+      drop: operation(cm, onDrop)
+    };
 
     var inp = d.input.getField();
     on(inp, "keyup", function(e) { onKeyUp.call(cm, e); });
@@ -3416,6 +3414,18 @@
     on(inp, "keypress", operation(cm, onKeyPress));
     on(inp, "focus", bind(onFocus, cm));
     on(inp, "blur", bind(onBlur, cm));
+  }
+
+  function dragDropChanged(cm, value, old) {
+    var wasOn = old && old != CodeMirror.Init;
+    if (!value != !wasOn) {
+      var funcs = cm.display.dragFunctions;
+      var toggle = value ? on : off;
+      toggle(cm.display.scroller, "dragstart", funcs.start);
+      toggle(cm.display.scroller, "dragenter", funcs.simple);
+      toggle(cm.display.scroller, "dragover", funcs.simple);
+      toggle(cm.display.scroller, "drop", funcs.drop);
+    }
   }
 
   // Called when the window resizes
@@ -3507,7 +3517,7 @@
   var lastClick, lastDoubleClick;
   function leftButtonDown(cm, e, start) {
     if (ie) setTimeout(bind(ensureFocus, cm), 0);
-    else ensureFocus(cm);
+    else cm.curOp.focus = true;
 
     var now = +new Date, type;
     if (lastDoubleClick && lastDoubleClick.time > now - 400 && cmp(lastDoubleClick.pos, start) == 0) {
@@ -3667,7 +3677,7 @@
       var cur = posFromMouse(cm, e, true, type == "rect");
       if (!cur) return;
       if (cmp(cur, lastPos) != 0) {
-        ensureFocus(cm);
+        cm.curOp.focus = true;
         extendTo(cur);
         var visible = visibleLines(display, doc);
         if (cur.line >= visible.to || cur.line < visible.from)
@@ -3770,7 +3780,7 @@
       try {
         var text = e.dataTransfer.getData("Text");
         if (text) {
-          if (cm.state.draggingText && !(mac ? e.metaKey : e.ctrlKey))
+          if (cm.state.draggingText && !(mac ? e.altKey : e.ctrlKey))
             var selected = cm.listSelections();
           setSelectionNoUndo(cm.doc, simpleSelection(pos, pos));
           if (selected) for (var i = 0; i < selected.length; ++i)
@@ -4025,7 +4035,7 @@
   var lastStoppedKey = null;
   function onKeyDown(e) {
     var cm = this;
-    ensureFocus(cm);
+    cm.curOp.focus = true;
     if (signalDOMEvent(cm, e)) return;
     // IE does strange things with escape.
     if (ie && ie_version < 11 && e.keyCode == 27) e.returnValue = false;
@@ -5282,7 +5292,7 @@
     }
   });
   option("disableInput", false, function(cm, val) {if (!val) cm.display.input.reset();}, true);
-  option("dragDrop", true);
+  option("dragDrop", true, dragDropChanged);
 
   option("cursorBlinkRate", 530);
   option("cursorScrollMargin", 0);

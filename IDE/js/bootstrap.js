@@ -12,10 +12,7 @@ requirejs.config({
 		'ribs':'backbone.ribs',
 		'text':'require.text',
 		'async':'async',
-		'codemirror':'codemirror',
-		'javascript':'javascript',
 		'IDE':'../ide'
-
 	},
 	shim:{
 		
@@ -34,7 +31,25 @@ requirejs.config({
 		IDE:{
 			deps:['jquery','backbone','ribs','text']
 		}
-	}
+	},
+	cm: {
+	    // baseUrl to CodeMirror dir
+	    baseUrl: './',
+	    // path to CodeMirror lib
+	    path: 'codemirror/codemirror',
+	    // path to CodeMirror css file
+	    css: '/js/vendor/codemirror/codemirror.css',
+	    // define themes
+	    themes: {
+	        monokai: '/js/vendor/codemirror/theme/monokai.css',
+	    },
+	    modes: {
+	      // modes dir structure
+	      path:"codemirror/mode/{mode}/{mode}",
+	      javascript: 'mode/javascript/javascript',
+	      htmlmixed:'mode/htmlmixed/htmlmixed'
+	    }
+  }
 });
 
 requirejs(['IDE'],function(ide){

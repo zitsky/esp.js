@@ -1,4 +1,4 @@
-define(['underscore','backbone','codemirror'],function(_,Backbone,CodeMirror){
+define(['underscore','backbone','code-mirror!@'],function(_,Backbone,CodeMirror){
 	var private={};
 	var ModelBuffer=Backbone.Ribs.Model.extend({
 		defaults:{
@@ -23,10 +23,10 @@ define(['underscore','backbone','codemirror'],function(_,Backbone,CodeMirror){
 		makeBuffer:function(name)
 		{
 			var nameCols=name.split(".");
-			var buffer=CodeMirror.Doc(name,"","javascript");
+			var buffer=CodeMirror.Doc("","javascript");
 			
 			buffer.on("change",_.bind(function(){
-				this.trigChanged();
+				this.trigChanged(name);
 			},this));
 
 			this.add({

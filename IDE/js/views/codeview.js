@@ -29,7 +29,16 @@ define(['underscore','backbone','app/system/preloader'],function(_,Backbone,Prel
 
 				Preloader.show("Lookup project");
 
+				this.showInMe("Editor");
+				Preloader.hide();
+
 			},this));
+		},
+		showInMe:function(name)
+		{
+			this.$el.empty();
+			this.$el.append(this.Views[name].el);
+			this.Views[name].didShow();
 		}
 	});
 });
