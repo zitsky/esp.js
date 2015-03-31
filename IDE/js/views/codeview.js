@@ -1,4 +1,4 @@
-define(['underscore','Backbone','app/system/preloader'],function(_,Backbone,Preloader){
+define(['underscore','backbone','app/system/preloader'],function(_,Backbone,Preloader){
 	return Backbone.Ribs.View.extend({
 		el:"#mainView",
 		assets:{

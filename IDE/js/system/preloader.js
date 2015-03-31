@@ -27,7 +27,7 @@ define(['underscore','backbone'],function(_,Backbone){
 		{
 			console.log("preloader initizlize");
 			//setTimeout(_.bind(this.hide,this),3000);
-			this.hide();
+			//this.hide();
 		},
 		hide:function()
 		{

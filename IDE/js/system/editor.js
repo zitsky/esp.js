@@ -1,4 +1,4 @@
-define(['underscore','backbone','codemirror','app/system/buffers','javascript'],function(_,Backbone,CodeMirror,Buffers){
+define(['underscore','backbone','../vendor/codemirror','app/system/buffers','../vendor/javascript'],function(_,Backbone,CodeMirror,Buffers){
 	return new (Backbone.Ribs.View.extend({
 		tagName:"div",
 		editor:null,
