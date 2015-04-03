@@ -20,8 +20,9 @@ html {
 			left:0;
 			top:0;
 			right:0;
-			height:122px;
+			height:80px;
 			background:@grandBlue;
+			z-index: 10;
 
 			.win-button-group {
 
@@ -107,6 +108,7 @@ html {
 					  align-items: center;
 					  cursor:pointer;
 					  margin-right:1px;
+					  position:relative;
 				  }
 				  li:hover, li.active {
 				  	  background:white;
@@ -124,7 +126,7 @@ html {
 					left:0px;
 					background:@grandBlue;
 					border-left:1px solid white;
-					min-height:30px;
+					min-height:0px;
 					list-style:none;
 					flex-direction:column;
 						padding:0;

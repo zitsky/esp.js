@@ -66,8 +66,9 @@ html body .window-header {
   left: 0;
   top: 0;
   right: 0;
-  height: 122px;
+  height: 80px;
   background: #33b5e5;
+  z-index: 10;
 }
 html body .window-header .win-button-group {
   position: absolute;
@@ -141,6 +142,7 @@ html body .window-header .menu li {
   align-items: center;
   cursor: pointer;
   margin-right: 1px;
+  position: relative;
 }
 html body .window-header .menu li:hover,
 html body .window-header .menu li.active {
@@ -156,7 +158,7 @@ html body .window-header .menu.allowopen ul {
   left: 0px;
   background: #33b5e5;
   border-left: 1px solid white;
-  min-height: 30px;
+  min-height: 0px;
   list-style: none;
   flex-direction: column;
   padding: 0;
@@ -210,7 +212,7 @@ html body .preloader h1:before {
 }
 .editor-main {
   position: absolute;
-  top: 122px;
+  top: 80px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -218,6 +220,8 @@ html body .preloader h1:before {
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: stretch;
+  border: 1px solid #33b5e5;
+  border-top: none;
 }
 .editor-main #project_info {
   width: 200px;

@@ -14,7 +14,7 @@
 		"resizable":true
 	},
 	"dependencies":{
-
+		"serialport":"~1.6.1"
 	},
 	"devDependencies": {
 	    "grunt": "~0.4.5",
