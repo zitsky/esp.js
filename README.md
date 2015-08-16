@@ -1,14 +1,27 @@
 ESP.Js Platform
 ======
 
-ESP.JS is implementation javascript on ESP8266 chip, basicly on ESP8266 Board. 
+Based on v7 engine. Now it coming to alpha.
+Coming soon:
+- WiFi API
+- Sockets API
+- IDE
 
-What include the project? 
+Now:
+- v7 on esp
+- gpio api
+- require and module.exports system
+- Simple Project File System (SPFS for storage js in flash memory)
 
-* Frimware for chip, based on JS intepreter. 
-* IDE worked on Win, MacOSX and linux.
-* First flasher chip flash
-* Implemetantion protocol of smart home
-* Like node.Js style of code
+example:
+ var myModule=require("test-module");
+ myModule.method();
 
-Watch for this and like this! 
+ var pin0=gpio(0);
+ pin0.mode(PIN_OUT);//default
+ pin0.set(true);//for on
+ pin0.get();//return true
+ //future...
+ pin0.on implementation for track events on gpio system.
+
+SPFS - now only fot js code.
