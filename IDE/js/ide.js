@@ -1,12 +1,14 @@
-define(['underscore','backbone','app/system/preloader','app/views/codeview','app/views/header','app/system/windows'],
-	function(_,Backbone,Preloader,CodeView,Header,Windows){
+define(['underscore','backbone','app/system/preloader','app/views/codeview','app/views/header','app/system/windows','app/views/projectview'],
+	function(_,Backbone,Preloader,CodeView,Header,Windows,ProjectView){
 	var self={};	
 	var nwGui=require("nw.gui");
 	return (window.IDE=_.extend(self,{
 		myHead:null,
 		codeView:null,
+		projectview:null,
 		start:function()
 		{
+
 			console.log("Ide Start loading");
 			this.myHead=new Header({
 				win:nwGui.Window.get(),
@@ -15,19 +17,23 @@ define(['underscore','backbone','app/system/preloader','app/views/codeview','app
 			this.myHead.headermenu.addMenu("file","file");
 			this.myHead.headermenu.addSubMenu("file",{
 				id:'new',
-				name:'new'
+				name:'new',
+                trig:'buffer.createfile'
 			});
 			this.myHead.headermenu.addSubMenu("file",{
 				id:'open',
-				name:'open'
+				name:'open',
+                trig:'buffer.openfile'
 			});
 			this.myHead.headermenu.addSubMenu("file",{
 				id:'save',
-				name:'save'
+				name:'save',
+                trig:'buffer.saveactive'
 			});
 			this.myHead.headermenu.addSubMenu("file",{
 				id:'saveas',
-				name:'save as'
+				name:'save as',
+                trig:'buffer.saveactiveas'
 			});
 			this.myHead.headermenu.addSubMenu("file",{
 				seperator:true
@@ -44,6 +50,7 @@ define(['underscore','backbone','app/system/preloader','app/views/codeview','app
 			this.myHead.headermenu.addMenu("help","help");
 			nwGui.Window.get().on("close",_.bind(this.onclose,this));
 			this.codeView=new CodeView();
+			this.projectview=new ProjectView();
 			window.windows=Windows;
 		},
 		onclose:function()

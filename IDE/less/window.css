@@ -1,0 +1,163 @@
+html {
+  position: relative;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+html body {
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background: #272822;
+}
+html body .window-header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 80px;
+  background: #33b5e5;
+  z-index: 10;
+}
+html body .window-header .win-button-group {
+  position: absolute;
+  top: 2px;
+  height: 32px;
+  display: flex;
+}
+html body .window-header .win-button-group .button {
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  width: 25px;
+  margin: 0;
+  padding: 0;
+  margin-right: 0px;
+  height: 25px;
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  color: #FFF;
+  font: 15px helv4light;
+  position: relative;
+  outline: 0;
+}
+html body .window-header .win-button-group .button i {
+  border: 1px solid #FFF;
+  left: 5px;
+  top: 10px;
+  right: 5px;
+  bottom: 5px;
+  display: block;
+  position: absolute;
+}
+html body .window-header .win-button-group .button:first-child {
+  border-left: 0;
+}
+html body .window-header .win-button-group .button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+html body .window-header .win-button-group.on-right {
+  right: 2px;
+}
+html body .window-header .win-button-group.on-left {
+  left: 2px;
+}
+html body .window-header h1 {
+  font: 20px helv5normal;
+  color: white;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  text-transform: uppercase;
+}
+html body .window-header .menu {
+  list-style: none;
+  position: absolute;
+  left: 25px;
+  bottom: 0px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+html body .window-header .menu li {
+  height: 30px;
+  padding: 0px 10px;
+  border-bottom: 2px solid white;
+  justify-content: center;
+  display: flex;
+  font: 15px helv3thin;
+  color: #fff;
+  text-transform: uppercase;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 1px;
+  position: relative;
+}
+html body .window-header .menu li:hover,
+html body .window-header .menu li.active {
+  background: white;
+  color: #33b5e5;
+}
+html body .window-header .menu ul {
+  display: none;
+}
+html body .window-header .menu.allowopen ul {
+  position: absolute;
+  top: 32px;
+  left: 0px;
+  background: #33b5e5;
+  border-left: 1px solid white;
+  min-height: 0px;
+  list-style: none;
+  flex-direction: column;
+  padding: 0;
+  min-width: 120px;
+}
+html body .window-header .menu.allowopen ul li {
+  justify-content: flex-start;
+  margin: 0;
+  border: 0;
+}
+html body .window-header .menu.allowopen ul hr {
+  border: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: block;
+  margin: 0;
+  padding: 0px;
+}
+html body .window-header .menu.allowopen li:hover ul {
+  display: flex;
+}
+html body .preloader {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: #33b5e5;
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+html body .preloader h1 {
+  font: 30px helv5normal;
+  color: #FFF;
+}
+html body .preloader span {
+  position: relative;
+  text-align: center;
+  font: 14px helv4light;
+  color: #FFF;
+}
+html body .preloader h1:before {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  top: 0;
+}

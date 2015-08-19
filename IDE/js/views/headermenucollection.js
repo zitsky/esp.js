@@ -4,13 +4,29 @@ define(['underscore','backbone'],function(){
 		tagName:'li',
 		bindings:{
 			el:{
-				text:'model.name'
+				text:{
+					data:['model.name','model.edited'],
+					filter:function(name,ed)
+					{
+						return name+(ed?"*":"");
+					}
+				}
 			}
+		},
+		events:
+		{
+			"click":"onClick"
 		},
 		initialize:function()
 		{
 			if(this.model.get("seperator"))
 				this.setElement("<hr/>");
+		},
+		onClick:function()
+		{
+			if(this.model.get("trig"))
+				window.GE.trigger(this.model.get("trig"));
+			return false;
 		}
 	})
 
@@ -29,10 +45,17 @@ define(['underscore','backbone'],function(){
 			},
 
 		},
+		events: {
+			"click":"onClick"
+		},
 		initialize:function()
 		{
 			this.collection=this.model.get("collection");
 			this.$el.html('<span>file</span><ul></ul>');
+		},
+		onClick:function()
+		{
+			console.log(this.model);
 		}
 	});
 
@@ -50,6 +73,7 @@ define(['underscore','backbone'],function(){
 						name:'',
 						enabled:true,
 						visible:true,
+						trig:null,
 						onclick:function(){}
 					}
 				})

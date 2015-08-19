@@ -52,8 +52,9 @@ requirejs.config({
   }
 });
 
-requirejs(['IDE'],function(ide){
+requirejs(['IDE','backbone'],function(ide,Backbone){
 	//$(function(){
+		window.GE= _.extend({},Backbone.Events);
 		ide.start();
 //	});
 });

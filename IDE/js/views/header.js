@@ -4,7 +4,13 @@ define(['underscore','backbone','app/views/headermenucollection'],function(_,Bac
 		el:".window-header",
 		bindings:{
 			'.title span':{
-				text:"model.title"
+				text:{
+					data:"model.title",
+					filter:function(title)
+					{
+						return title+((title=="")?"":" - ");
+					}
+				}
 			},
 			'.win-button-group':{
 				mod:{
@@ -20,7 +26,7 @@ define(['underscore','backbone','app/views/headermenucollection'],function(_,Bac
 		headermenu:null,
 		initialize:function(options){
 			options=_.extend({
-				title:"No Title",
+				title:"",
 				menu:[],
 				buttons:{
 					position:'right'

@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="resources/app.css">
+	<link rel="stylesheet" href="less/app.css">
 </head>
 <body>
+	<input style="display:none;" id="fileDialog" type="file" accept=".js,.espjsproject"/>
+	<input style="display:none;" id="directoryDialog" type="file" />
 	<div id="preloader" class="preloader">
 		<h1>ESP.JS IDE</h1>
 		<span></span>
 	</div>
 	<div class="window-header">
-		<h1 class="title"><span>welcome</span> - ESP.JS IDE</h1>
+		<h1 class="title"><span>welcome</span>ESP.JS IDE</h1>
 		<div class="win-button-group on-right">
 			<button class="button button-min">_</button>
 			<button class="button button-max"><i></i></button>
@@ -22,7 +24,6 @@
 	<div class="editor-main">
 		<div id="project_info"></div>
 		<div id="mainView"></div>
-		</div>
 	</div>
 	<script data-main="js/bootstrap" src="/js/vendor/require.js"></script>
 </body>

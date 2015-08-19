@@ -14,19 +14,7 @@ define(['underscore','backbone','app/system/buffers','app/views/filelistitem'],f
 		},
 		initialize:function()
 		{
-			
-			this.collection=new (Backbone.Collection.extend({
-				model:Backbone.Ribs.Model.extend({
-					defaults:{
-						title:'123',
-						saved:false
-					}
-				}),
-				initialize:function()
-				{
-					this.reset([{title:'test'},{title:'test2'}]);
-				}
-			}))();
+			this.collection=Buffers;
 		}
 	});
 });
